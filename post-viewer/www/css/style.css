@@ -1,0 +1,61 @@
+/**/
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+* {
+    font-family: 'Open Sans', sans-serif !important;
+
+}
+
+#ar-page {
+    text-align: center;
+}
+
+#ar-page .title{
+    text-align: right;
+}
+
+.card {
+    text-align: right;
+    width:40%;
+    text-overflow: clip;
+    max-width: 150px;
+    padding:5px ;
+    border-radius: 0;
+    display: inline-table;
+}
+
+.title {
+    height: 50px;
+    font-size: 14px;
+}
+
+#ajax-loader {
+    top:5%;
+    left:48%;
+    position: absolute;
+}
+
+.publish-date {
+    color: #808080;
+    font-size: 8px;
+    text-align: left;
+}
+
+#post-page .content {
+    direction: rtl !important;
+    text-align: right !important;
+    padding: 20px  !important;
+    font-size: 16px  !important;
+}
+
+div.featured-image-container {
+    text-align: center !important;
+}
+
+.post-featured-image {
+    max-width: 100% !important;
+    max-height: 250px !important;
+}
+
+.listingFeaturedImage {
+
+}

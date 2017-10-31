@@ -1,0 +1,9 @@
+{
+  "name" : "Post Viewer",
+  "website" : "",
+  "contact_email" : "",
+  "api_post_url" : "http://www.example.com/wp-json/wp/v2/posts?orderby=date&per_page=",
+  "api_url" : "http://www.example.com/wp-json/wp/v2",
+  "number_of_posts" : 10,
+  "impressum" : ""
+}
