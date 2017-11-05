@@ -4,6 +4,7 @@
  */
 (function(){
 
+
 var numberOfPosts = 10;
 var targetUrl = "http://www.welat.fm/wp-json/wp/v2/posts?orderby=date&per_page=" + numberOfPosts;
 var apiUrl = "http://www.welat.fm/wp-json/wp/v2";
@@ -35,16 +36,20 @@ function addPostToPage(post) {
     $.get(apiPostFeatureLink).done(function (featureImageResponse) {
         var featuredImgSrc = featureImageResponse.guid.rendered.substr(0, featureImageResponse.guid.rendered.length -4) + '-150x150.jpg';
 
-        $("#app-page .content")
-            .append('        <ons-card onclick="openPost(\'' + post._links.self[0].href + '\', \'' + featuredImgSrc +'\')">\n' +
-                '          <img class="listingFeaturedImage" src="'+ featuredImgSrc + '" alt="Onsen UI" style="width: 100%">\n' +
-                '          <div class="title">\n' +
-                post.title.rendered +
-                '          </div>\n' +
-                '<div class="publish-date">' +
-                post.date.substr(0, 10) +
-                '</div>' +
-                '        </ons-card>');
+        $("#app-page .list")
+        .append(
+            '<li class="list-item onclick="openPost(\'' + post._links.self[0].href + '\', \'' + featuredImgSrc + '\')">' +
+                   ' <div class="list-item__right">' +
+                        ' <img class="list-item__thumbnail listingFeaturedImage" src="' + featuredImgSrc + '"> ' +
+                        ' </div> ' +
+
+                        ' <div class="list-item__left"> ' +
+                        ' <div class="list-item__title">' +
+                            post.title.rendered +
+                        '</div> ' +
+                        ' <div class="list-item__subtitle">'+ post.date.substr(0, 10)  + '</div> ' +
+                    ' </div> ' +
+            ' </li>');
     })
 }
 
