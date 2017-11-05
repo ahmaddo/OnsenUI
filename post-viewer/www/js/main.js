@@ -3,7 +3,7 @@
  * Created by Ark on 16.04.2017.
  */
 
-var numberOfPosts = 1;
+var numberOfPosts = 10;
 var targetUrl = "http://www.welat.fm/wp-json/wp/v2/posts?orderby=date&per_page=" + numberOfPosts;
 var apiUrl = "http://www.welat.fm/wp-json/wp/v2";
 var appName = "Welat FM";
@@ -90,4 +90,12 @@ function share(text, title) {
     navigator.share(text,title,'plain/text');
     return true;
 }
+
+$(document).ready(function (){
+    $('.scrollable').pullToRefresh()
+        .on("refresh.pulltorefresh", function (evt){
+            var content =  $('.content');
+            location.reload();
+        });
+});
 startApp();
