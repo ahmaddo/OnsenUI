@@ -3,7 +3,7 @@
  * Created by Ark on 16.04.2017.
  */
 
-var numberOfPosts = 12;
+var numberOfPosts = 1;
 var targetUrl = "http://www.welat.fm/wp-json/wp/v2/posts?orderby=date&per_page=" + numberOfPosts;
 var apiUrl = "http://www.welat.fm/wp-json/wp/v2";
 var appName = "Welat FM";
@@ -75,13 +75,19 @@ function openPostPage(post, featuredImgSrc) {
     document.querySelector('#navigator').pushPage('post.html').then(function () {
         featuredImgSrc = featuredImgSrc.substr(0, featuredImgSrc.length -11) + '279x220.jpg';
         $("#post-ajax-loader").hide();
-
+        var postTitle = post.title.rendered;
+        var postLink = post.link;
+        var postContent = post.content.rendered;
         $("#post-page .content")
             .append('<div class="featured-image-container"><img class="post-featured-image" src="' + featuredImgSrc + '"></div>')
-            .append('<h3>' + post.title.rendered + '</h3>')
-            .append(post.content.rendered)
-            .append('<a href="' + post.link + '">أفتح الموقع</a>');
-    })
+            .append('<h3>' + postTitle + '</h3>')
+            .append(postContent)
+            .append('<a href="#" onclick="share(\'' + postLink + '\', \'' + postTitle + '\');">share</a>');
+    });
 }
 
+function share(text, title) {
+    navigator.share(text,title,'plain/text');
+    return true;
+}
 startApp();
