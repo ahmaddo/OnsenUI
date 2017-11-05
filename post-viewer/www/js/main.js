@@ -76,7 +76,7 @@ function openPostPage(post, featuredImgSrc) {
         $("#post-ajax-loader").hide();
 
         $("#post-page .content")
-            .append('<div class="featured-image-container"><img class="post-featured-image" src="' + featuredImgSrc + '"></img></div>')
+            .append('<div class="featured-image-container"><img class="post-featured-image" src="' + featuredImgSrc + '"></div>')
             .append('<h3>' + post.title.rendered + '</h3>')
             .append(post.content.rendered)
             .append('<a href="' + post.link + '">أفتح الموقع</a>');
