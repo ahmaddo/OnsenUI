@@ -2,10 +2,8 @@
 /**
  * Created by Ark on 16.04.2017.
  */
-(function(){
 
-
-var numberOfPosts = 10;
+var numberOfPosts = 12;
 var targetUrl = "http://www.welat.fm/wp-json/wp/v2/posts?orderby=date&per_page=" + numberOfPosts;
 var apiUrl = "http://www.welat.fm/wp-json/wp/v2";
 var appName = "Welat FM";
@@ -36,22 +34,25 @@ function addPostToPage(post) {
     $.get(apiPostFeatureLink).done(function (featureImageResponse) {
         var featuredImgSrc = featureImageResponse.guid.rendered.substr(0, featureImageResponse.guid.rendered.length -4) + '-150x150.jpg';
         var postLink = post._links.self[0].href;
-        $("#app-page .list")
-        .append(
-            '<li class="list-item onclick="openPost(\'' + postLink + '\', \'' + featuredImgSrc + '\')">' +
-                   ' <div class="list-item__right">' +
-                        ' <img class="list-item__thumbnail listingFeaturedImage" src="' + featuredImgSrc + '"> ' +
-                    ' </div> ' +
+        var postOpenFunction = 'openPost(\'' + postLink + '\', \'' + featuredImgSrc + '\')';
 
-                    ' <div class="list-item__left"> ' +
-                        ' <div class="list-item__title">' +
-                            post.title.rendered +
-                        '</div> ' +
-                        ' <div class="list-item__subtitle">'+
-                            post.date.substr(0, 10)  +
-                        '</div> ' +
-                    '</div> ' +
-            ' </li>');
+        var listItemHtmlCode =  '<li class="list-item" onclick="' + postOpenFunction + ';">' +
+            '<div class="list-item__right">' +
+            '<img class="list-item__thumbnail listingFeaturedImage" src="' + featuredImgSrc + '"> ' +
+            '</div> ' +
+
+            '<div class="list-item__left"> ' +
+            '<div class="list-item__title">' +
+            post.title.rendered +
+            '</div> ' +
+            '<div class="list-item__subtitle">'+
+            post.date.substr(0, 10)  +
+            '</div> ' +
+            '</div> ' +
+            '</li>';
+
+        $("#app-page .list")
+        .append(listItemHtmlCode);
     })
 }
 
@@ -84,4 +85,3 @@ function openPostPage(post, featuredImgSrc) {
 }
 
 startApp();
-})();
