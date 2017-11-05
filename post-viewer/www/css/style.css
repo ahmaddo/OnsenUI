@@ -59,3 +59,31 @@ div.featured-image-container {
 .listingFeaturedImage {
 
 }
+
+.list-item {
+    border-bottom: solid 1px #e2e2e2 !important;
+}
+
+.list-item__title {
+    direction: rtl;
+    text-align: right !important;
+    min-height: 53px !important;
+}
+
+.list-item__right {
+    padding: 5px 14px 5px 0 !important;
+}
+.list-item__left {
+    display: block !important;
+    width:100% !important;
+}
+
+.list-item__thumbnail {
+    height: 75px !important;
+    width: 75px !important;
+    border-radius: 1px !important;
+}
+
+.list-item__subtitle {
+    font-size: 11px;
+}
