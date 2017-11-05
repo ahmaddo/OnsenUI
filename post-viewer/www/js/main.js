@@ -93,8 +93,7 @@ function share(text, title) {
 
 $(document).ready(function (){
     $('.scrollable').pullToRefresh()
-        .on("refresh.pulltorefresh", function (evt){
-            var content =  $('.content');
+        .on("end.pulltorefresh", function (evt){
             location.reload();
         });
 });
