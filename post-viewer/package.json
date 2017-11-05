@@ -7,12 +7,14 @@
       "android"
     ],
     "plugins": {
-      "cordova-plugin-whitelist": {}
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-share": {}
     }
   },
   "dependencies": {
     "cordova-android": "~6.3.0",
     "cordova-plugin-screen-orientation": "^2.0.1",
+    "cordova-plugin-share": "1",
     "cordova-plugin-whitelist": "1",
     "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git"
   }
