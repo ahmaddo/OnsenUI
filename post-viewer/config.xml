@@ -11,11 +11,11 @@
     <allow-intent href="*" />
     <allow-intent href="itms-apps:*" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="Orientation" value="default" />
+    <preference name="Orientation" value="portrait" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="AndroidLaunchMode" value="singleTop" />
     <preference name="ErrorUrl" value="" />
-    <preference name="Fullscreen" value="false" />
+    <preference name="Fullscreen" value="true" />
     <preference name="KeepRunning" value="true" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="1000" />
@@ -100,4 +100,5 @@
     </platform>
     <engine name="android" spec="~6.3.0" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-share" spec="1" />
 </widget>
