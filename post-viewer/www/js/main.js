@@ -1,4 +1,8 @@
 
+/**
+ * Created by Ark on 16.04.2017.
+ */
+(function(){
 
 var numberOfPosts = 10;
 var targetUrl = "http://www.welat.fm/wp-json/wp/v2/posts?orderby=date&per_page=" + numberOfPosts;
@@ -73,3 +77,4 @@ function openPostPage(post, featuredImgSrc) {
 }
 
 startApp();
+})();
