@@ -1,15 +1,12 @@
-var targetUrl = null;
-var apiUrl = null;
-var appName = null;
 
-$.get('config/config.json').done(function (config) {
-    targetUrl = config.api_post_url + config.number_of_posts;
-    apiUrl = config.api_url;
-    appName = config.name;
-    startApp()
-});
+
+var numberOfPosts = 10;
+var targetUrl = "http://www.welat.fm/wp-json/wp/v2/posts?orderby=date&per_page=" + numberOfPosts;
+var apiUrl = "http://www.welat.fm/wp-json/wp/v2";
+var appName = "Welat FM";
 
 function startApp() {
+    setAppName();
     $.get(targetUrl).done(
         function (response) {
             setAppName();
@@ -74,3 +71,5 @@ function openPostPage(post, featuredImgSrc) {
             .append('<a href="' + post.link + '">أفتح الموقع</a>');
     })
 }
+
+startApp();
