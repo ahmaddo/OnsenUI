@@ -25,30 +25,32 @@ function setAppName() {
 }
 
 function responsePostActions(response) {
-    hideLoader();
     for(post in response) {
         addPostToPage(response[post]);
     }
+    hideLoader();
 }
 
 function addPostToPage(post) {
     var apiPostFeatureLink = apiUrl + '/media/' + post.featured_media;
     $.get(apiPostFeatureLink).done(function (featureImageResponse) {
         var featuredImgSrc = featureImageResponse.guid.rendered.substr(0, featureImageResponse.guid.rendered.length -4) + '-150x150.jpg';
-
+        var postLink = post._links.self[0].href;
         $("#app-page .list")
         .append(
-            '<li class="list-item onclick="openPost(\'' + post._links.self[0].href + '\', \'' + featuredImgSrc + '\')">' +
+            '<li class="list-item onclick="openPost(\'' + postLink + '\', \'' + featuredImgSrc + '\')">' +
                    ' <div class="list-item__right">' +
                         ' <img class="list-item__thumbnail listingFeaturedImage" src="' + featuredImgSrc + '"> ' +
-                        ' </div> ' +
+                    ' </div> ' +
 
-                        ' <div class="list-item__left"> ' +
+                    ' <div class="list-item__left"> ' +
                         ' <div class="list-item__title">' +
                             post.title.rendered +
                         '</div> ' +
-                        ' <div class="list-item__subtitle">'+ post.date.substr(0, 10)  + '</div> ' +
-                    ' </div> ' +
+                        ' <div class="list-item__subtitle">'+
+                            post.date.substr(0, 10)  +
+                        '</div> ' +
+                    '</div> ' +
             ' </li>');
     })
 }
