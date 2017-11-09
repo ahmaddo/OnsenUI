@@ -3,7 +3,7 @@
  * Created by Ark on 16.04.2017.
  */
 
-var numberOfPosts = 10;
+var numberOfPosts = 1;
 var targetUrl = "http://www.welat.fm/wp-json/wp/v2/posts?orderby=date&per_page=" + numberOfPosts;
 var apiUrl = "http://www.welat.fm/wp-json/wp/v2";
 var appName = "Welat FM";
@@ -82,8 +82,8 @@ function openPostPage(post, featuredImgSrc) {
             .append('<div class="featured-image-container"><img class="post-featured-image" src="' + featuredImgSrc + '"></div>')
             .append('<h3>' + postTitle + '</h3>')
             .append(postContent)
-            .append('<a href="#" onclick="share(\'' + postLink + '\', \'' + postTitle + '\');">share</a>');
-    });
+            //.append('<a href="#" onclick="share(\'' + postLink + '\', \'' + postTitle + '\');">share</a>')
+            .append('<ons-speed-dial position="bottom right" direction="up">            <ons-fab>            <ons-icon icon="md-share" onclick="share(\'' + postLink + '\', \'' + postTitle + '\');"></ons-icon></ons-fab></ons-speed-dial>');    });
 }
 
 function share(text, title) {
@@ -97,4 +97,18 @@ $(document).ready(function (){
             location.reload();
         });
 });
+window.fn = {};
+
+window.fn.open = function() {
+    var menu = document.getElementById('menu');
+    menu.open();
+};
+
+window.fn.load = function(page) {
+    var content = document.getElementById('content');
+    var menu = document.getElementById('menu');
+    content.load(page)
+        .then(menu.close.bind(menu));
+};
+
 startApp();
