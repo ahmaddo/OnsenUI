@@ -16,6 +16,7 @@
     "cordova-plugin-screen-orientation": "^2.0.1",
     "cordova-plugin-share": "1",
     "cordova-plugin-whitelist": "1",
+    "cordova-plugin-x-socialsharing": "^5.2.1",
     "es6-promise-plugin": "git+https://github.com/vstirbu/PromisesPlugin.git"
   }
 }
